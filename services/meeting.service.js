@@ -23,7 +23,7 @@ const getMeetings = async () => {
 
 const getMeeting = async (id) => {
     try {
-        const meet = await  meetingModel.findById(id).exec();
+        const meet = await meetingModel.findById(id).exec();
         if (!meet) {
             throw new Error('Business not found');
         }
@@ -47,17 +47,17 @@ const updateMeeting = async (id, updateData) => {
     }
 };
 
-const deleteMeeting = async (id ) => {
+const deleteMeeting = async (id) => {
     try {
-        const meet = await meetingModel.findById(id ).exec();
+        const meet = await meetingModel.findById(id).exec();
         if (!meet) {
             throw new Error('Business not found');
         }
-        return meetingModel.delete(meet) ;
+        return meetingModel.delete(meet);
     } catch (error) {
         console.error('Error updating business by ID:', error);
         throw new Error('Failed to update business by ID.');
     }
 };
 
-module.exports = { addMeeting, getMeetings, getMeeting, updateMeeting ,deleteMeeting};
+module.exports = { addMeeting, getMeetings, getMeeting, updateMeeting, deleteMeeting };

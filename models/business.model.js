@@ -4,11 +4,10 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const businessSchema = new Schema({
-    
-    name: { type: String },
-    adress: { type: String },
-    phone: { type: String },
- 
+
+    name: String,
+    services: String,
+    address: String,
 });
 
 // export default mongoose.model("businessModel", businessSchema);

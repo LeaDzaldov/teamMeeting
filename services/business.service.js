@@ -23,7 +23,7 @@ const getEvents = async () => {
 
 const getEventId = async (id) => {
     try {
-        const event = await  businessModel.findById(id).exec();
+        const event = await businessModel.findById(id).exec();
         if (!event) {
             throw new Error('Business not found');
         }
@@ -47,17 +47,17 @@ const updateEvenet = async (id, updateData) => {
     }
 };
 
-const deleteEvenet = async (id ) => {
+const deleteEvenet = async (id) => {
     try {
-        const event = await businessModel.findById(id ).exec();
+        const event = await businessModel.findById(id).exec();
         if (!event) {
             throw new Error('Business not found');
         }
-        return businessModel.delete(event) ;
+        return businessModel.delete(event);
     } catch (error) {
         console.error('Error updating business by ID:', error);
         throw new Error('Failed to update business by ID.');
     }
 };
 
-module.exports = { addEvent, getEvents, getEventId, updateEvenet ,deleteEvenet};
+module.exports = { addEvent, getEvents, getEventId, updateEvenet, deleteEvenet };

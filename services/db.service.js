@@ -15,17 +15,36 @@
 
 // module.exports = mongoose;
 // import mongoose from "mongoose";
-mongoose.set("strictQuery", false);
-// import dotenv from 'dotenv';
-// dotenv.config()
-const DATABASE_URL = process.env.DATABASE_URL
-const mongoDB =DATABASE_URL;
 
-main().catch((err) => console.log(err));
-async function main() {
-    console.log(mongoDB);
-    
-    await mongoose.connect(mongoDB || '');
-}
+// mongoose.set("strictQuery", false);
+// // import dotenv from 'dotenv';
+// // dotenv.config()
+// const DATABASE_URL = process.env.DATABASE_URL
+// const mongoDB =DATABASE_URL;
 
-export default mongoose
+// main().catch((err) => console.log(err));
+// async function main() {
+//     console.log(mongoDB);
+
+//     await mongoose.connect(mongoDB || '');
+// }
+
+// // export default mongoose
+
+
+
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/business', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+    console.log('Connected to MongoDB successfully');
+});
+
+module.exports = mongoose;
