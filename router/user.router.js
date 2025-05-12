@@ -30,6 +30,7 @@ router.get('/:id', authenticateToken, checkAdminRole, userController.getUser);
  * @swagger
 
  */
+// router.post('/',  userController.addUser);
 router.post('/', authenticateToken, checkAdminRole, userController.addUser);
 
 /**

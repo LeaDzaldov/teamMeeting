@@ -2,7 +2,7 @@ const serviceModel = require("../models/service.model");
 
 const addService = async (newservice) => {
     try {
-        const service = new  serviceModel(newservice);
+        const service = new serviceModel(newservice);
         return await service.save();
     }
     catch (error) {
@@ -23,7 +23,7 @@ const getServices = async () => {
 
 const getService = async (id) => {
     try {
-        const service = await serviceModel .findById(id).exec();
+        const service = await serviceModel.findById(id).exec();
         if (!service) {
             throw new Error('Business not found');
         }
@@ -47,17 +47,17 @@ const updateService = async (id, updateData) => {
     }
 };
 
-const deleteService = async (id ) => {
+const deleteService = async (id) => {
     try {
-        const service = await serviceModel.findById(id ).exec();
+        const service = await serviceModel.findById(id).exec();
         if (!service) {
             throw new Error('Business not found');
         }
-        return businessModel.delete(service) ;
+        return businessModel.delete(service);
     } catch (error) {
         console.error('Error updating business by ID:', error);
         throw new Error('Failed to update business by ID.');
     }
 };
 
-module.exports = { addService, getServices, getService, updateService ,deleteService};
+module.exports = { addService, getServices, getService, updateService, deleteService };

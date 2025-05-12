@@ -1,6 +1,6 @@
 const serviceService = require('../services/service.service');
 
-const addService= async (req, res) => {
+const addService = async (req, res) => {
     try {
         const data = req.body;
         const newSrvice = await serviceService.addService(data);
@@ -21,7 +21,7 @@ const getServices = async (req, res) => {
     }
 }
 
-const getService= async (req, res) => {
+const getService = async (req, res) => {
     try {
         const ServiceId = req.params.id;
         const service = await serviceService.getService(ServiceId);

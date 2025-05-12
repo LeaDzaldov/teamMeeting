@@ -1,10 +1,13 @@
 const userService = require('../services/user.service');
 
-const addUser= async (req, res) => {
+const addUser = async (req, res) => {
     try {
         const data = req.body;
-        const newUser = await userService.addUser(data);
-        res.status(201).json(newUser);
+
+
+
+        const newuser = await userService.addUser(username, id, email, password, role);
+        res.status(201).json(newuser);
     }
     catch (error) {
         res.status(500).json({ message: error.message });
@@ -21,10 +24,10 @@ const getUsers = async (req, res) => {
     }
 }
 
-const getUser= async (req, res) => {
+const getUser = async (req, res) => {
     try {
         const UserId = req.params.id;
-        const user= await userService.getUser(UserId);
+        const user = await userService.getUser(UserId);
         res.status(200).json(user);
     }
     catch (error) {

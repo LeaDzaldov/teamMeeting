@@ -13,7 +13,8 @@ const addMeeting = async (req, res) => {
 
 const getMeetings = async (req, res) => {
     try {
-        const meetings = await meetingService.getmeetings();
+        const { sortBy = 'date', order = 'asc' } = req.query
+        const meetings = await meetingService.getmeetings(sortBy, order);
         res.status(200).json(meetings);
     }
     catch (error) {
@@ -21,7 +22,7 @@ const getMeetings = async (req, res) => {
     }
 }
 
-const getMeeting= async (req, res) => {
+const getMeeting = async (req, res) => {
     try {
         const MeetingId = req.params.id;
         const meet = await meetingService.getMeeting(MeetingId);
@@ -45,7 +46,7 @@ const updateMeeting = async (req, res) => {
 }
 const deleteMeeting = async (req, res) => {
     try {
-        const meetId = req.params.id;
+        const meetId = req.params.idNumber;
         const event = await meetingService.deleteMeeting(meetId);
         res.status(200).json(event);
     }

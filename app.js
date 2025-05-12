@@ -1,6 +1,3 @@
-// import express from 'express';
-//  import bodyParser from 'body-parser';
-//  import  dotenv from "dotenv"
 
 const express = require('express');
 const app = express();
@@ -36,5 +33,5 @@ app.listen(PORT, function () {
     // console.log("http://localhost:".concat(PORT));
 }).on('error', function (err) { console.log("Error occurred, server can't start", err); });
 
- // "lint: fix: "eslint --fix ./*.js",
+// "lint: fix: "eslint --fix ./*.js",
 
